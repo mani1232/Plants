@@ -42,6 +42,16 @@ public class Main {
                         String sql = "UPDATE " + Constants.TABLE_NAME + " SET name = \"" + name + "\", description = \"" + description + "\" WHERE id = " + id + ";";
                         EditData.useCMD(sql);
                     }
+                    case (-6) -> {
+                        System.out.println("Enter cmd: ");
+                        System.out.println("""
+                                UPDATE table
+                                SET column_1 = 'value 1', column_2 = 'value 2', column_3 = 'value 3'
+                                WHERE condition
+                                """);
+                        String sql = scanner.next();
+                        EditData.useCMD(sql);
+                    }
                     default -> {
                         System.out.println("Name: " + getData().get(choose).name + " Description: " + getData().get(choose).description );
                     }
@@ -71,11 +81,14 @@ public class Main {
 
 
     public static void showInfo() {
-        System.out.println("0 - show all data");
-        System.out.println("-1 - stop app");
-        System.out.println("-2 - show this info");
-        System.out.println("-3 - delete by id");
-        System.out.println("-4 - add");
-        System.out.println("-5 - set by id");
+        System.out.println("""
+                0 - show all data
+                -1 - stop app
+                -2 - show this info
+                -3 - delete by id
+                -4 - add
+                -5 - set by id
+                -6 - custom cmd
+                """);
     }
 }
