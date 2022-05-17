@@ -52,9 +52,7 @@ public class Main {
                         String sql = scanner.next();
                         EditData.useCMD(sql);
                     }
-                    default -> {
-                        System.out.println("Name: " + getData().get(choose).name + " Description: " + getData().get(choose).description );
-                    }
+                    default -> System.out.println("Name: " + getData().get(choose).name + " Description: " + getData().get(choose).description );
                 }
             } while (isWorking);
         } catch (RuntimeException e) {
