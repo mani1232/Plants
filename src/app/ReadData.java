@@ -19,10 +19,10 @@ import java.util.List;
 // базу данных.
 public class ReadData {
 
-    public List<Fruit> selectAll() {
+    public List<DataBase> selectAll() {
 
         // Создание списка-коллекции
-        List<Fruit> fruitList = new ArrayList<>();
+        List<DataBase> DataBase = new ArrayList<>();
         // Формируем SQL-запрос в БД
         String sql = "SELECT name, description FROM " + Constants.TABLE_NAME;
 
@@ -31,7 +31,7 @@ public class ReadData {
             try (ResultSet rs = stmt.executeQuery(sql)) {
                 // Цикл вывода данных
                 while (rs.next()) {
-                    fruitList.add(new Fruit(
+                    DataBase.add(new DataBase(
                                     rs.getString("name"),
                                     rs.getString("description")
                             )
@@ -44,6 +44,6 @@ public class ReadData {
             return Collections.emptyList();
         }
         // Возвращаем список
-        return fruitList;
+        return DataBase;
     }
 }
