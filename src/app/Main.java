@@ -1,11 +1,26 @@
 package app;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        showData(getData());
+        Scanner scanner = new Scanner(System.in);
+        do {
+            try {
+                System.out.printf("Input id(%s): ", getData().size());
+                int id = scanner.nextInt();
+                if (id == -1) break;
+                if (id == 0) showData(getData());
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        } while (true);
     }
 
     // Метод получения данных
